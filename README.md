@@ -79,8 +79,14 @@ Only **ntopng Community** is free and fully functional out of the box. `nprobe`,
 
 ## Findings / Documentation Gaps
 
-- **Ghost Networks alerts.** ntopng's behavioral alerting flagged traffic from two subnets as "not belonging to the wlp8s0 networks" during testing. This alert type fires whenever ntopng sees traffic to/from a subnet that isn't in its configured **Local Networks** list — one instance was the laptop's own current LAN (a real gap, since the docs imply local networks are auto-detected from the interface's IP at startup, but that wasn't complete here); the other was simply stale residue from a mobile-hotspot connection used the previous day, not a live issue. Worth reviewing **Settings → Networks → Local Networks** after install or after switching networks, since auto-detection doesn't always catch up on its own.
-- **Slow Periodic Activity alert.** A "5second" internal Lua script ran over 1:05, longer than its own budget. This is a system-level performance alert rather than a network one — plausibly caused by running ntopng alongside heavy foreground use (multiple browser tabs, speedtest) on laptop-class hardware rather than the dedicated appliance hardware ntop's docs typically assume. Worth watching if it recurs under idle conditions.
+- **Ghost Networks alerts.** ntopng's behavioral alerting flagged traffic from two subnets as "not belonging to the wlp8s0 networks" during testing.
+This alert type fires whenever ntopng sees traffic to/from a subnet that isn't in its configured **Local Networks** list — one instance was the laptop's own current LAN (a real gap, since the docs imply local networks are auto-detected from the interface's IP at startup, but that wasn't complete here); the other was simply stale residue from a mobile-hotspot connection used the previous day, not a live issue.
+Worth reviewing **Settings → Networks → Local Networks** after install or after switching networks, since auto-detection doesn't always catch up on its own.
+ 
+- **Slow Periodic Activity alert.** A "5second" internal Lua script ran over 1:05, longer than its own budget.
+This is a system-level performance alert rather than a network one — plausibly caused by running ntopng alongside heavy foreground use (multiple browser tabs, speedtest) on laptop-class hardware rather than the dedicated appliance hardware ntop's docs typically assume.
+Worth watching if it recurs under idle conditions.
+ 
 - **Cloudflare WARP dominated traffic volume.** A single QUIC flow to `162.159.198.2` (520 MB sent) accounted for the bulk of observed traffic — nDPI correctly identified it as `QUIC.CloudflareWarp` rather than lumping it in as generic encrypted traffic, which is the clearest demonstration of DPI-based classification adding value over a plain bandwidth counter.
 
 ## Capabilities Overview (Confirmed Working — ntopng Community)
