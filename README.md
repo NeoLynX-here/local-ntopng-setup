@@ -65,6 +65,8 @@ The install created and started systemd units for: `ntop-service`, `ntop-license
 
 Only **ntopng Community** is free and fully functional out of the box. `nprobe`, `cento`, `n2disk`, and `ntap` are commercial products that run in a demo/limited mode without a purchased license — confirmed by the "Upgrade to Pro/Enterprise version" banner persistently shown in the ntopng UI throughout testing.
 
+<img width="2469" height="1393" alt="Screenshot From 2026-07-15 11-31-19" src="https://github.com/user-attachments/assets/18a9cccf-6cf6-4464-a5fb-c5ef4d0df646" />
+
 ## Testing & Verification
 
 | # | Test | Result |
@@ -103,7 +105,7 @@ Worth watching if it recurs under idle conditions.
 
 ntopng Community is installed and fully functional on `wlp8s0`, with host discovery, DPI-based flow classification, active monitoring, and alerting all verified against live traffic. The commercial add-ons (`nprobe`, `cento`, `n2disk`, `ntap`) installed alongside it were not exercised and are not needed for this single-host use case.
 
-<img width="2469" height="1393" alt="Screenshot From 2026-07-15 11-31-19" src="https://github.com/user-attachments/assets/18a9cccf-6cf6-4464-a5fb-c5ef4d0df646" />
+
 <img width="2469" height="1393" alt="image(1)" src="https://github.com/user-attachments/assets/def0601c-9161-47ea-bc23-e26f26af6ff7" />
 <img width="2469" height="1393" alt="image" src="https://github.com/user-attachments/assets/0d751869-73c2-4496-bb00-659fed809a28" />
 <img width="2469" height="1393" alt="Screenshot From 2026-07-15 11-33-54" src="https://github.com/user-attachments/assets/7206de4a-2e0a-48c1-97a2-964882a6b232" />
